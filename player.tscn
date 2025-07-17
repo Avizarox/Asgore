@@ -4,7 +4,7 @@
 
 [sub_resource type="BoxMesh" id="BoxMesh_4flbx"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_sh265"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_4flbx"]
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_4flbx")
@@ -13,4 +13,4 @@ script = ExtResource("1_4flbx")
 mesh = SubResource("BoxMesh_4flbx")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_sh265")
+shape = SubResource("SphereShape3D_4flbx")

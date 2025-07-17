@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://brfj047rhk4l1"]
+[gd_scene load_steps=7 format=3 uid="uid://brfj047rhk4l1"]
 
 [ext_resource type="PackedScene" uid="uid://taw3dh8cdwsr" path="res://player.tscn" id="1_a202f"]
 [ext_resource type="Texture2D" uid="uid://dk6m336o33tkv" path="res://u_b28c74f3a94dc5b0b345554509c5fed2_800.jpg" id="2_noarx"]
-[ext_resource type="Script" uid="uid://duduxkxbufbf2" path="res://camera_3d.gd" id="3_a0tk4"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_noarx"]
 
@@ -19,26 +18,18 @@ sky = SubResource("Sky_r3fl7")
 [node name="Node3D" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("1_a202f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 0, 0, 0)
 speed = 3.0
 fall_acceleration = 10.0
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.693034, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.12159, 0)
 shape = SubResource("WorldBoundaryShape3D_noarx")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_jka67")
 
-[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("player")]
+[node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-0.707107, 0.5, -0.5, 0, 0.707107, 0.707107, 0.707107, 0.5, -0.5, -3, 4.5, -3)
-script = ExtResource("3_a0tk4")
-player = NodePath("../Player")
-offset = Vector3(-3, 4.5, -3)
-
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(0.706341, 0.707871, 0, -0.707871, 0.706341, 0, 0, 0, 1, 8.10904, 0.469192, -1.80127)
-use_collision = true
-size = Vector3(1, 7.44818, 4.60254)
